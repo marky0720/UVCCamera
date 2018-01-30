@@ -56,6 +56,7 @@ PreviewPipeline::~PreviewPipeline() {
 //********************************************************************************
 static void copyFrame(const uint8_t *src, uint8_t *dest, const int width, int height, const int stride_src, const int stride_dest) {
 	const int h8 = height % 8;
+    height = (height/8)*8;
 	for (int i = 0; i < h8; i++) {
 		memcpy(dest, src, width);
 		dest += stride_dest; src += stride_src;
